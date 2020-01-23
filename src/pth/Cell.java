@@ -1,34 +1,41 @@
 package pth;
 
 public class Cell {
+	private boolean n;
 	private boolean s;
-	private boolean u;
-	private boolean z;
-	private boolean v;
+	private boolean w;
+	private boolean e;
+	private boolean prohod;
 	
+	public boolean isProhod() {
+		return prohod;
+	}
+	public void setProhod(boolean prohod) {
+		this.prohod = prohod;
+	}
+	public boolean isN() {
+		return n;
+	}
+	public void setN(boolean n) {
+		this.n = n;
+	}
 	public boolean isS() {
 		return s;
 	}
 	public void setS(boolean s) {
 		this.s = s;
 	}
-	public boolean isU() {
-		return u;
+	public boolean isW() {
+		return w;
 	}
-	public void setU(boolean u) {
-		this.u = u;
+	public void setW(boolean w) {
+		this.w = w;
 	}
-	public boolean isZ() {
-		return z;
+	public boolean isE() {
+		return e;
 	}
-	public void setZ(boolean z) {
-		this.z = z;
-	}
-	public boolean isV() {
-		return v;
-	}
-	public void setV(boolean v) {
-		this.v = v;
+	public void setE(boolean e) {
+		this.e = e;
 	}
 
 	

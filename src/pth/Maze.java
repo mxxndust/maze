@@ -14,42 +14,65 @@ public class Maze {
 	
 	public void run() {
 		String p = "WRWWLWWLWWLWLWRRWRWWWRWWRWLW";
-		String o = "WWRRWLWLWWLWWLWWRWWRWWLW";
-		
-		int angle = 0;
-		//int n = 0;
-		//int m = 0;
-		
-		/*if (angle == 0) {
-			List<List<String>> row = new ArrayList<>();
-			//for(List<String> s : row) {
-			for(int n=0; n < row.size(); ++n) {
-				ArrayList <String> col = new ArrayList<>();
-				//for(String st : col) {
-				for(int m=0; m < row.size(); ++m) {
-					
-				}
+		String o = "WWRRWLWLWWLWWLWWRWWRWWLW";		
+		int angle = 180;	
+		String [][] arr = new String [p.length()*2][p.length()*2];
+		/*for(int k = 0; k < arr.length; k++) {
+			for(int z = 0; z < arr[k].length; z++) {		
+				//arr[k][z]= "0";
+				System.out.print(arr[k][z] + "\t");
 			}
+			System.out.println();
 		}*/
-		
-		/*for (int i = 0; i < p.length()-2; ++i) {
-			if (p.valueOf(i).equals('W')) {
+		//List<List<String>> row = new ArrayList<>();
+
+		int n = arr.length/2;
+		int m = arr.length/2;
+		for (int i = 1; i < p.length()-1; i++) {
+			if (p.charAt(i) == 'W') {
 				if (angle == 180) {
-					
+
+					if (arr[n][m] == null) {
+						arr[n][m] = "s";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "s";
+			        }
+					n++;
 				}
 				else if (angle == 270) {
 					
+					if (arr[n][m] == null) {
+			        	arr[n][m] = "w";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "w";
+			        }
+					m--;
 				}
-				else if (angle == 360) {
+				else if (angle == 0) {
 					
+					if (arr[n][m] == null) {
+			        	arr[n][m] = "n";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "n";
+			        }
+					n--;
 				}
 				else if (angle == 90) {
 					
+					if (arr[n][m] == null) {
+			        	arr[n][m] = "e";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "e";
+			        }
+					m++;
 				}
-				
-				//Cell currentCell = row.get().get();
 			}
-			else if (p.valueOf(i).equals('L')) {
+
+			else if (p.charAt(i) == 'L') {
 				if (angle == 0) {
 					angle = 270;
 				}
@@ -57,7 +80,7 @@ public class Maze {
 					angle-=90;
 				}
 			}
-			else if (p.valueOf(i).equals('R')) {
+			else if (p.charAt(i) == 'R') {
 				if (angle == 270) {
 					angle = 0;
 				}
@@ -65,100 +88,86 @@ public class Maze {
 					angle+=90;
 				}
 			}
-		}*/
-		
-		List<List<String>> row = new ArrayList<>();
-		//for(List<String> s : row) {
-		for(int n = 0; n < row.size(); n++) {
-			ArrayList <String> col = new ArrayList<>();
-			//for(String st : col) {
-			for(int m = 0; m < col.size(); m++) {
-				for (int i = 0; i < p.length()-2; ++i) {
-					if (p.valueOf(i).equals('W')) {
-						if (angle == 180) {
-							if (row.get(n).get(m) == null) {
-								//row.get(n).get(m).add("s");
-								row.get(n).set(m, "s");
-							}
-							else {
-								//col.set(m, col.get(m)+"s");
-								row.get(n).set(m, col.get(m)+"s");
-							}
-						n++;
-						}
-						else if (angle == 270) {
-							if (m == 0) {
-								if (row.get(n).get(m) == null) {
-									row.get(n).set(m, "w");
-								}
-								else {
-									row.get(n).set(m, col.get(m)+"w");
-								}
-							m=0;
-							}
-							else {
-								if (row.get(n).get(m) == null) {
-									row.get(n).set(m, "w");
-								}
-								else {
-									row.get(n).set(m, col.get(m)+"w");
-								}
-							m--;
-							}
-						}
-						else if (angle == 0) {
-							if (n == 0) {
-								if (row.get(n).get(m) == null) {
-									row.get(n).set(m, "n");
-								}
-								else {
-									row.get(n).set(m, col.get(m)+"n");
-								}
-							n=0;
-							}
-							else {
-								if (row.get(n).get(m) == null) {
-									row.get(n).set(m, "n");
-								}
-								else {
-									row.get(n).set(m, col.get(m)+"n");
-								}
-							n--;
-							}
-						}
-						else if (angle == 90) {
-							if (row.get(n).get(m) == null) {
-								//row.get(n).get(m).add("s");
-								row.get(n).set(m, "e");
-							}
-							else {
-								//col.set(m, col.get(m)+"s");
-								row.get(n).set(m, col.get(m)+"e");
-							}
-						m++;
-						}
-						
-						//Cell currentCell = row.get().get();
-					}
-					else if (p.valueOf(i).equals('L')) {
-						if (angle == 0) {
-							angle = 270;
-						}
-						else {
-							angle-=90;
-						}
-					}
-					else if (p.valueOf(i).equals('R')) {
-						if (angle == 270) {
-							angle = 0;
-						}
-						else {
-							angle+=90;
-						}
-					}
+		}
+		System.out.println(angle);
+		switch (angle) {
+		case 0:
+			angle = 180;
+		case 90:
+			angle = 270;
+		case 180:
+			angle = 0;
+		case 270:
+			angle = 90;
+		}
+		//angle = 0;
+		System.out.println(angle);
+		for (int i = 1; i < o.length()-2; i++) {
+			if (o.charAt(i) == 'W') {
+				if (angle == 180) {
+
+					if (arr[n][m] == null) {
+						arr[n][m] = "s";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "s";
+			        }
+					n++;
+				}
+				else if (angle == 270) {
+					
+					if (arr[n][m] == null) {
+			        	arr[n][m] = "w";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "w";
+			        }
+					m--;
+				}
+				else if (angle == 0) {
+					
+					if (arr[n][m] == null) {
+			        	arr[n][m] = "n";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "n";
+			        }
+					n--;
+				}
+				else if (angle == 90) {
+					
+					if (arr[n][m] == null) {
+			        	arr[n][m] = "e";
+			        }
+			        else {
+			        	arr[n][m] = arr[n][m] + "e";
+			        }
+					m++;
+				}
+			}
+
+			else if (o.charAt(i) == 'L') {
+				if (angle == 0) {
+					angle = 270;
+				}
+				else {
+					angle-=90;
+				}
+			}
+			else if (o.charAt(i) == 'R') {
+				if (angle == 270) {
+					angle = 0;
+				}
+				else {
+					angle+=90;
 				}
 			}
 		}
+		for(int k = 0; k < arr.length; k++) {
+			for(int z = 0; z < arr[k].length; z++) {		
+				System.out.print(arr[k][z] + "\t");
+			}
+			System.out.println();
+		}
 	}
-
 }

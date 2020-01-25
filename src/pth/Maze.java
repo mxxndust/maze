@@ -88,30 +88,21 @@ public class Maze {
 		
 		if (angle == 0) {
 			arr[n][m].setN(true);
-		}
-		else if (angle == 90) {
-			arr[n][m].setE(true);
-		}
-		else if (angle == 180) {
-			arr[n][m].setS(true);
-		}
-		else if (angle == 270) {
-			arr[n][m].setW(true);
-		}
-		
-		if (angle == 0) {
 			angle = 180;
 		}
 		else if (angle == 90) {
+			arr[n][m].setE(true);
 			angle = 270;
 		}
 		else if (angle == 180) {
+			arr[n][m].setS(true);
 			angle = 0;
 		}
 		else if (angle == 270) {
+			arr[n][m].setW(true);
 			angle = 90;
 		}
-
+		
 		for (int i = 1; i < o.length()-1; i++) {
 			if (o.charAt(i) == 'W') {
 				if (angle == 180) {

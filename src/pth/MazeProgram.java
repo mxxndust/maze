@@ -21,9 +21,7 @@ public class MazeProgram {
 			int ci = Integer.parseInt(br.readLine());
 			for (int i = 0; i < ci; i++) {
 				System.out.println("Case #"+ (i+1) +":");
-		    //while((s=br.readLine())!=null){
 		    	String[] words = br.readLine().split("\\s");
-		    	//System.out.println(words[0]);
 		    	String one = words[0];
 		    	String two = words[1];
 		    	Maze maze = new Maze();
@@ -33,9 +31,7 @@ public class MazeProgram {
 					   System.out.println(l.get(j));
 				}
 		    }
-			//}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Îøèáêà!");
 			//e.printStackTrace();
 		} catch (IOException e) {
